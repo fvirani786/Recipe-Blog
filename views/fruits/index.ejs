@@ -15,7 +15,7 @@
       <div class="timeline-row">
         <div class="timeline-column">
           <h2 class="title">
-            Fruits<span class="animate" style="--i: 1"></span>
+            <span class="title-fruit" style="--i: 1">Fruits</span>
           </h2>
           <div class="timeline-box">
             <% for( let index = 0; index < allFruits.length; index++ ) { %> <%
@@ -43,7 +43,7 @@
 
         <div class="timeline-column">
           <h2 class="title">
-            Veggies<span class="animate" style="--i: 1"></span>
+            <span class="title-veggies" style="--i: 1">Vegetables</span>
           </h2>
           <div class="timeline-box">
             <% for( let index = 0; index < allVeggies.length; index++ ) { %> <%
@@ -64,13 +64,12 @@
             </div>
             <div></div>
             <% } %>
-
             <span class="animate" style="--i: 2"></span>
           </div>
         </div>
         <div class="timeline-column">
           <h2 class="title">
-            Meats<span class="animate" style="--i: 1"></span>
+            <span class="title-meats" style="--i: 1">Meats</span>
           </h2>
           <div class="timeline-box">
             <% for( let index = 0; index < allMeats.length; index++ ) { %> <%
@@ -97,5 +96,9 @@
         </div>
       </div>
     </section>
+
+    <!-- typed js -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="/js/app.js"></script>
   </body>
 </html>
