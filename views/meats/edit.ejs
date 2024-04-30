@@ -8,26 +8,26 @@
   </head>
   <body>
     <section class="edit" id="edit">
-      <h2 class="heading">Edit <span>fruit: <%= fruit.name %> </span></h2>
+      <h2 class="heading">Edit <span>Meat: <%= meat.name %> </span></h2>
 
-      <form action="/fruits/<%= id %>/?_method=PUT" method="POST">
+      <form action="/meats/<%= id %>/?_method=PUT" method="POST">
         <div class="input-box">
           <label for="name">Name</label>
-          <input type="text" name="name" id="name" value="<%= fruit.name %>" />
+          <input type="text" name="name" id="name" value="<%= meat.name %>" />
         </div>
         <div class="input-box">
-          <label for="color">Color</label>
+          <label for="quality">Quality</label>
           <input
             type="text"
-            name="color"
-            id="color"
-            value="<%= fruit.color %>"
+            name="quality"
+            id="quality"
+            value="<%= meat.quality %>"
           />
         </div>
         <div class="input-box"></div>
         <label for="readyToEat">Is Ready to Eat?</label>
         <input type="checkbox" name="readyToEat" id="readyToEat" <%
-        if(fruit.readyToEat === true){ %> checked <% } %> />
+        if(meat.readyToEat === true){ %> checked <% } %> />
         <textarea
           name=""
           id=""
@@ -35,7 +35,7 @@
           rows="10"
           placeholder="Desciption"
         ></textarea>
-        <input class="btn" type="submit" value="Edit Fruit" />
+        <input class="btn" type="submit" value="Edit Meat" />
       </form>
     </section>
   </body>

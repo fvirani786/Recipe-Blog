@@ -82,6 +82,11 @@ app.get("/fruits/:id/edit", (req, res) => {
   let id = parseInt(req.params.id);
   res.render("fruits/edit", { fruit: fruit, id: id });
 });
+app.get("/meats/:id/edit", (req, res) => {
+  const meat = meats[req.params.id];
+  let id = parseInt(req.params.id);
+  res.render("meats/edit", { meat: meat, id: id });
+});
 // *****GET -DELETE PAGE**********
 app.get("/fruits/:id/delete", (req, res) => {
   const fruit = fruits[req.params.id];
@@ -144,6 +149,17 @@ app.put("/fruits/:id", (req, res) => {
   }
   fruits[parseInt(req.params.id)] = req.body;
   res.redirect("/fruits");
+});
+
+app.put("/meats/:id", (req, res) => {
+  console.log("-----Update Meat--------- \n", req.body);
+  if (req.body.readyToEat === "on") {
+    req.body.readyToEat = true;
+  } else {
+    req.body.readyToEat = false;
+  }
+  meats[parseInt(req.params.id)] = req.body;
+  res.redirect("/meats");
 });
 
 //***DELETE- DELETE FRUIT */
