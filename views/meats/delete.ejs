@@ -8,15 +8,11 @@
   </head>
   <body>
     <section class="delete" id="delete">
-      <h1 class="heading">Are you want to Delete the Fruit?</h1>
-      <form action="/fruits/<%= id %>/?_method=DELETE" method="POST">
-        <input
-          class="btn"
-          type="submit"
-          value="Yes, Delete <%= fruit.name %>"
-        />
+      <h1 class="heading">Are you want to Delete <%= meat.name %> ?</h1>
+      <form action="/meats/<%= id %>/?_method=DELETE" method="POST">
+        <input class="btn" type="submit" value="Yes,Delete <%= meat.name %>" />
       </form>
-      <button class="btn"><a href="/fruits/<%= id %>">NO!</a></button>
+      <button class="btn"><a href="/meats/<%= id %>">NO!</a></button>
     </section>
   </body>
 </html>
