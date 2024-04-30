@@ -54,6 +54,10 @@ app.get("/meats", (req, res) => {
   });
 });
 
+app.get("/meats/new", (req, res) => {
+  res.render("meats/new", {});
+});
+
 app.get("/recipes", (req, res) => {
   res.render("recipe/index", {
     allRecipes: recipes,
@@ -117,6 +121,17 @@ app.post("/fruits", (req, res) => {
 
   fruits.push(req.body);
   res.redirect("/fruits");
+});
+
+app.post("/meats", (req, res) => {
+  console.log("--- FORM BODY \n", req.body);
+  if (req.body.readyToEat === "on") {
+    req.body.readyToEat = true;
+  } else {
+    req.body.readyToEat = false;
+  }
+  meats.push(req.body);
+  res.redirect("/meats");
 });
 
 // ****** update fruit ***
