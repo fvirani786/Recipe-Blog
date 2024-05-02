@@ -67,6 +67,13 @@ app.get("/recipes", (req, res) => {
   });
 });
 
+app.get("/recipes", (req, res) => {
+  res.render("recipe/new", {
+    allRecipes: recipes,
+  });
+});
+//Added new 
+
 // ******* SHOW ROUTE **********
 app.get("/fruits/:indexOfFruitsArray", (req, res) => {
   let idx = parseInt(req.params.indexOfFruitsArray);
@@ -79,6 +86,8 @@ app.get("/fruits/:indexOfFruitsArray", (req, res) => {
     res.render("fruits/show", { fruit: fruits[idx], id: idx });
   }
 });
+
+
 //********* GET -edit page get rout
 app.get("/fruits/:id/edit", (req, res) => {
   const fruit = fruits[req.params.id];

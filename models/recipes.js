@@ -23,6 +23,12 @@ const recipes = [
     likes: 10,
     img: "https://imgs.search.brave.com/GRlDkPjYtCkiQEkHsU9w7BlGUzjlHk0DxUNhfIgddQM/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jb29r/c21hcnRzLmltZ2l4/Lm5ldC9tZWFsX3Bo/b3Rvcy8yMDY5LzIw/MjIxMDE3X0JlZWZf/VGlicy1OTS0xLmpw/Zz9peGxpYj1yYWls/cy00LjMuMCZ3PTUw/MCZkcHI9MiZhdXRv/PWZvcm1hdA",
   },
+  {
+  dish: "Udon Noodles",
+    userName: "Jo Cooks",
+    likes: 12,
+    img: "https://www.jocooks.com/wp-content/uploads/2014/09/hoisin-chicken-udon-noodles-1-15.jpg"
+  }
 ];
 
 module.exports = {
