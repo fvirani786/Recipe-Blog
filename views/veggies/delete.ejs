@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit App</title>
+    <link rel="stylesheet" href="/css/delete.css" />
+  </head>
+  <body>
+    <section class="delete" id="delete">
+      <h1 class="heading">Are you want to Delete <%= veg.name %> ?</h1>
+      <form action="/veggies/<%= id %>/?_method=DELETE" method="POST">
+        <input class="btn" type="submit" value="Yes,Delete <%= veg.name %>" />
+      </form>
+      <button class="btn"><a href="/veggies/<%= id %>">NO!</a></button>
+    </section>
+  </body>
+</html>

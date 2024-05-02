@@ -45,6 +45,9 @@ app.get("/veggies", (req, res) => {
     allMeats: meats,
   });
 });
+app.get("/veggies/new", (req, res) => {
+  res.render("veggies/new.ejs", {});
+});
 app.get("/meats", (req, res) => {
   // send array as a response
   res.render("meats/index", {
@@ -87,6 +90,11 @@ app.get("/meats/:id/edit", (req, res) => {
   let id = parseInt(req.params.id);
   res.render("meats/edit", { meat: meat, id: id });
 });
+app.get("/veggies/:id/edit", (req, res) => {
+  const veg = veggies[req.params.id];
+  let id = parseInt(req.params.id);
+  res.render("veggies/edit", { veg: veg, id: id });
+});
 // *****GET -DELETE PAGE**********
 app.get("/fruits/:id/delete", (req, res) => {
   const fruit = fruits[req.params.id];
@@ -97,6 +105,11 @@ app.get("/meats/:id/delete", (req, res) => {
   const meat = meats[req.params.id];
   let id = parseInt(req.params.id);
   res.render("meats/delete", { meat, id });
+});
+app.get("/veggies/:id/delete", (req, res) => {
+  const veg = veggies[req.params.id];
+  let id = parseInt(req.params.id);
+  res.render("veggies/delete", { veg, id });
 });
 app.get("/veggies/:indexOfVeggiesArray", (req, res) => {
   let idx = parseInt(req.params.indexOfVeggiesArray);
@@ -143,6 +156,16 @@ app.post("/meats", (req, res) => {
   meats.push(req.body);
   res.redirect("/meats");
 });
+app.post("/veggies", (req, res) => {
+  console.log("--- FORM BODY \n", req.body);
+  if (req.body.readyToEat === "on") {
+    req.body.readyToEat = true;
+  } else {
+    req.body.readyToEat = false;
+  }
+  veggies.push(req.body);
+  res.redirect("/veggies");
+});
 
 // ****** update fruit ***
 app.put("/fruits/:id", (req, res) => {
@@ -157,7 +180,7 @@ app.put("/fruits/:id", (req, res) => {
 });
 
 app.put("/meats/:id", (req, res) => {
-  console.log("-----Update MeatSir--------- \n", req.body);
+  console.log("-----Update Meat--------- \n", req.body);
   if (req.body.readyToEat === "on") {
     req.body.readyToEat = true;
   } else {
@@ -165,6 +188,16 @@ app.put("/meats/:id", (req, res) => {
   }
   meats[parseInt(req.params.id)] = req.body;
   res.redirect("/meats");
+});
+app.put("/veggies/:id", (req, res) => {
+  console.log("-----Update Veggies--------- \n", req.body);
+  if (req.body.readyToEat === "on") {
+    req.body.readyToEat = true;
+  } else {
+    req.body.readyToEat = false;
+  }
+  veggies[parseInt(req.params.id)] = req.body;
+  res.redirect("/veggies");
 });
 
 //***DELETE- DELETE FRUIT */
@@ -177,6 +210,11 @@ app.delete("/meats/:id", (req, res) => {
   // remove the fruit item from the fruits array
   meats.splice(parseInt(req.params.id), 1);
   res.redirect("/meats");
+});
+app.delete("/veggies/:id", (req, res) => {
+  // remove the fruit item from the fruits array
+  veggies.splice(parseInt(req.params.id), 1);
+  res.redirect("/veggies");
 });
 
 // ----------- LISTEN FOR SERVER ----------
